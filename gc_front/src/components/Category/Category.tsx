@@ -1,4 +1,6 @@
-import { Outlet, Link } from "react-router-dom";
+import styles from "./Category.module.css";
+import { Link } from "react-router-dom";
+
 interface CategoryTypes {
   id: string;
   description: string;
@@ -81,9 +83,28 @@ export default function Category() {
     },
   ];
 
+  const handleCategoryClick = () => {
+    console.log("clicked");
+  };
   return (
     <>
-      <div></div> <Outlet />
+      {" "}
+      <div className={styles.category}>
+        <div className={styles.category_container}>
+          {categories.map((category, i) => {
+            return (
+              <Link
+                key={i}
+                className={styles.category_wrapper}
+                onClick={() => handleCategoryClick()}
+                to="convert"
+              >
+                <div className={styles.category_name}>{category.label}</div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 }
