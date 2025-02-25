@@ -24,4 +24,5 @@ dist-ssr
 *.sln
 *.sw?
 *.json
+*.m4a
 .env
